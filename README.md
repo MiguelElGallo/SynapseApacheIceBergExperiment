@@ -20,7 +20,7 @@ Following the steps from https://iceberg.apache.org/docs/latest/getting-started/
 
 Then you can create a table
 
-```json
+```
 %%sql
 -- local is the path-based catalog defined above
 CREATE TABLE local.db.table (id bigint, data string) USING iceberg
