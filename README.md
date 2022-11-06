@@ -27,14 +27,14 @@ CREATE TABLE local.db.table (id bigint, data string) USING iceberg
 ```
 
 Then insert some records:
-```json
+```
 %%sql
 INSERT INTO local.db.table VALUES (1, 'a'), (2, 'b'), (3, 'c');
 ```
 
 And finally check the contents of the table:
 
-```json
+```
 %%sql
 select * from local.db.table
 ```
@@ -45,7 +45,7 @@ This will create the table in the default Storage Account of your Synapse:
 And there you can find two folders data and metadata. You can guess what is inside, right? ;)
 
 My next step is to see how I can specify a different storage account, and that is clearly in this line:
-```json
+```
 "spark.sql.catalog.local.warehouse":"$PWD/warehouse"
 ```
 
