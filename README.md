@@ -1,7 +1,15 @@
 # SynapseApacheIceBergExperiment
 Experimenting with Apache Iceberg using Synapse Spark Pool
-
 # Steps
+
+## Add the Icebeberg .jar to Synapse
+You need to download the Iceberg Jar and add it to Synapse.
+
+Follow instructions from here: https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-manage-pool-packages
+
+I'm using this file: iceberg-spark-runtime-3.2_2.12-0.13.2.jar
+
+## Run the following cells
 Following the steps from https://iceberg.apache.org/docs/latest/getting-started/ create the following cells in a Synapse Notebook
 
 ```json
