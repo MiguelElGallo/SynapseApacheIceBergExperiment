@@ -1,5 +1,6 @@
 # SynapseApacheIceBergExperiment
-Experimenting with Apache Iceberg using Synapse Spark Pool
+A space to collaborate regarding experiences of using Apache Iceberg format with Synapse Spark Pools.
+
 # Steps
 
 ## Add the Icebeberg .jar to Synapse
@@ -9,6 +10,10 @@ Follow instructions from here: https://learn.microsoft.com/en-us/azure/synapse-a
 
 I'm using this file: iceberg-spark-runtime-3.2_2.12-0.13.2.jar
 
+## Create a linked service to the storage Account
+You can find some guidance here: https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=hadoop#create-and-query-external-tables-from-a-file-in-azure-data-lake
+
+Basically you need to have your Storage Account as 
 ## Run the following cells
 Following the steps from https://iceberg.apache.org/docs/latest/getting-started/ create the following cells in a Synapse Notebook
 
@@ -19,13 +24,13 @@ Following the steps from https://iceberg.apache.org/docs/latest/getting-started/
         "spark.sql.extensions":"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions",
         "spark.sql.catalog.spark_catalog":"org.apache.iceberg.spark.SparkSessionCatalog",
         "spark.sql.catalog.spark_catalog.type":"hive",
-        "spark.sql.catalog.local":"org.apache.iceberg.spark.SparkCatalog",
-        "spark.sql.catalog.local.type":"hadoop",
-        "spark.sql.catalog.local.warehouse":"$PWD/warehouse"
+        "spark.sql.catalog.local2":"org.apache.iceberg.spark.SparkCatalog",
+        "spark.sql.catalog.local2.type":"hadoop",
+        "spark.sql.catalog.local2.warehouse":"abfss://container@storage.dfs.core.windows.net/db"
     }
 }
 ```
-
+(Remember to replace container@storage)
 Then you can create a table
 
 ```
